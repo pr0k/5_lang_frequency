@@ -16,8 +16,7 @@ $ python lang_frequency.py [-h] [-c, --count] path/to/text/file/*.*
 
 example:
 
-$ python lang_frequency.py [-h] [-c, --count] path/to/text/file/*.*
-python lang_frequency.py -c 15 Liang-Xiao-Sheng.txt
+$ python lang_frequency.py -c 15 Liang-Xiao-Sheng.txt
 
 Word:
 
