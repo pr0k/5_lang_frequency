@@ -47,11 +47,11 @@ def get_frequency_of_words(text):
 
 def print_most_frequent_words(list_of_words, count):
     print('\nWord:\n')
-    for i in range(count):
+    for pair in range(count):
         print(
             '{0:15} \tis meets {1} times'.format(
-                list_of_words[i][0],
-                list_of_words[i][1],
+                list_of_words[pair][0],
+                list_of_words[pair][1],
             )
         )
 
@@ -59,14 +59,9 @@ def print_most_frequent_words(list_of_words, count):
 if __name__ == '__main__':
     try:
         args = args_from_parser()
+        list_of_words = remove_characters(load_data(args.text_file))
         print_most_frequent_words(
-            get_frequency_of_words(
-                remove_characters(
-                    load_data(
-                        args.text_file
-                    )
-                )
-            ),
+            get_frequency_of_words(list_of_words),
             args.count,
         )
     except IndexError:
