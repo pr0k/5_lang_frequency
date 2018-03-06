@@ -1,5 +1,6 @@
 import re
 import argparse
+from collections import Counter
 
 
 def args_from_parser():
@@ -31,23 +32,14 @@ def remove_characters(text):
     return pattern.sub(' ', text)
 
 
-def get_frequency_of_words(text):
-    text = text.lower().split()
-    text_words = {}
-    for word in text:
-        if word not in text_words:
-            text_words[word] = text.count(word)
-    return [word for word in sorted(
-                list(text_words.items()),
-                key=lambda pair: pair[1],
-                reverse=True,
-                )
-            ]
+def get_most_frequent_words(text, count):
+    words_frequency = Counter(text.split())
+    return words_frequency.most_common(count)
 
 
-def print_most_frequent_words(list_of_words, count):
+def print_most_frequent_words(list_of_words):
     print('\nWord:\n')
-    for pair in range(count):
+    for pair in range(len(list_of_words)):
         print(
             '{0:15} \tis meets {1} times'.format(
                 list_of_words[pair][0],
@@ -59,10 +51,18 @@ def print_most_frequent_words(list_of_words, count):
 if __name__ == '__main__':
     try:
         args = args_from_parser()
-        list_of_words = remove_characters(load_data(args.text_file))
+
+        prepared_text = remove_characters(
+            load_data(
+                args.text_file
+            )
+        )
+
         print_most_frequent_words(
-            get_frequency_of_words(list_of_words),
-            args.count,
+            get_most_frequent_words(
+                prepared_text,
+                args.count,
+            )
         )
     except IndexError:
         print(
