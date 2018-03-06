@@ -7,6 +7,8 @@ The Program shows the most commonly used words in the text file to the console i
 
 Just run the script specifying the path to the file with the text data.
 
+You can use an optional parameter `-c` or `--count` to specify the number of output words. Default value is 10.
+
 For detail run this with `-h` or `--help`
 
 ```bash
