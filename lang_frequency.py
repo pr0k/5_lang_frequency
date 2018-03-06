@@ -10,7 +10,6 @@ def args_from_parser():
     parser.add_argument(
         'text_file',
         help='specify ../*.txt',
-        type=str,
     )
     parser.add_argument(
         '-c',
@@ -28,8 +27,7 @@ def load_data(filepath):
 
 
 def remove_characters(text):
-    pattern = re.compile('[^\w ]')
-    return pattern.sub(' ', text)
+    return re.sub('[\W^ ]', ' ', text)
 
 
 def get_most_frequent_words(text, count):
@@ -39,19 +37,13 @@ def get_most_frequent_words(text, count):
 
 def print_most_frequent_words(list_of_words):
     print('\nWord:\n')
-    for pair in range(len(list_of_words)):
-        print(
-            '{0:15} \tis meets {1} times'.format(
-                list_of_words[pair][0],
-                list_of_words[pair][1],
-            )
-        )
+    for word, count in list_of_words:
+        print('{0:15} \tis meets {1} times'.format(word, count))
 
 
 if __name__ == '__main__':
     try:
         args = args_from_parser()
-
         prepared_text = remove_characters(
             load_data(
                 args.text_file
@@ -63,11 +55,6 @@ if __name__ == '__main__':
                 prepared_text,
                 args.count,
             )
-        )
-    except IndexError:
-        print(
-            '\nwarning: there are less '
-            '{} words included in the text!'.format(args.count)
         )
     except ValueError:
         print(
