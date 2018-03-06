@@ -24,17 +24,17 @@ Word:
 北京日报            	is meets 10 times
 燕山夜话            	is meets 10 times
 和               	is meets 9 times
-我               	is meets 8 times
 三家村札记           	is meets 8 times
-同学们             	is meets 6 times
+我               	is meets 8 times
 的               	is meets 6 times
+吴晗              	is meets 6 times
+同学们             	is meets 6 times
 三家村             	is meets 6 times
 战斗檄文            	is meets 6 times
-吴晗              	is meets 6 times
-解放军报            	is meets 5 times
-该杀              	is meets 5 times
-说               	is meets 5 times
 没有              	is meets 5 times
+我说              	is meets 5 times
+该杀              	is meets 5 times
+解放军报            	is meets 5 times
 
 ```
 
